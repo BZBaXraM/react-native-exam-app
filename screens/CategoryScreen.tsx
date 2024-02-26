@@ -1,7 +1,5 @@
 import * as React from "react";
 import {StyleSheet, View, Text, TextInput, ScrollView, Image, TouchableOpacity} from "react-native";
-import {useNavigation} from "@react-navigation/native";
-import cameraIcon from "../assets/icons/CameraIcon";
 
 const mockData = [
     {
@@ -32,7 +30,7 @@ const mockData = [
 ]
 
 type CategoryScreenProps = {
-    navigation: any;
+    navigation: object | any;
 };
 const CategoryScreen = ({navigation}: CategoryScreenProps) => {
     const [searchTerm, setSearchTerm] = React.useState("");
@@ -46,7 +44,8 @@ const CategoryScreen = ({navigation}: CategoryScreenProps) => {
             case 'Vegetables':
                 navigation.navigate('Vegetables');
                 break;
-            // Add more cases for other categories if needed
+            case 'Pasta':
+                navigation.navigate('Pasta');
             default:
                 break;
         }
@@ -105,21 +104,22 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     itemCardContainer: {
+        flex: 1,
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between"
     },
     itemCard: {
-        width: "45%", // Adjust as needed
-        marginBottom: 20, // Adjust as needed
-        borderRadius: 10, // Adjust as needed
+        width: "45%",
+        marginBottom: 20,
+        borderRadius: 10,
         overflow: "hidden",
         borderWidth: 1,
         borderColor: "#ccc",
     },
     image: {
         width: "100%",
-        height: 200, // Adjust as needed
+        height: 200,
     },
     title: {
         fontSize: 20,
