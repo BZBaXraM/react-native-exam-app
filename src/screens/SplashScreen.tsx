@@ -1,7 +1,7 @@
-import MyButton from "../src/components/MyButton";
+import MyButton from "../components/MyButton";
 import {ImageBackground, View, StyleSheet, Text} from "react-native";
-import DIcon from "../assets/icons/DIcon";
-import BoxIcon from "../assets/icons/BoxIcon";
+import DIcon from "../../assets/icons/DIcon";
+import BoxIcon from "../../assets/icons/BoxIcon";
 import React from "react";
 
 type SplashScreenProps = {
@@ -12,7 +12,7 @@ const SplashScreen = ({navigation}: SplashScreenProps) => {
         <View style={styles.container}>
             <DIcon style={styles.topIcon}/>
             <ImageBackground
-                source={require('./../assets/bg.png')}
+                source={require('../../assets/bg.png')}
                 style={styles.backgroundImage}>
                 <View style={styles.bottomContainer}>
                     <View style={styles.iconContainer}>

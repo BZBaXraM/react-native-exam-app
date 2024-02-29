@@ -1,8 +1,8 @@
 import {View, Text, ImageBackground, StyleSheet} from "react-native";
-import ShoppingCartIcon from "../assets/icons/ShoppingCartIcon";
-import HeartIcon from "../assets/icons/HeartIcon";
-import MyButton from "../src/components/MyButton";
-import Carousel from "../src/components/Carousel";
+import ShoppingCartIcon from "../../assets/icons/ShoppingCartIcon";
+import HeartIcon from "../../assets/icons/HeartIcon";
+import MyButton from "../components/MyButton";
+import Carousel from "../components/Carousel";
 
 
 type ItemScreenProps = {
@@ -29,15 +29,15 @@ const ItemScreen = ({
                     }: ItemScreenProps) => {
 
     const images = [
-        require('../assets/media1.png'),
-        require('../assets/media1.png'),
-        require('../assets/media1.png')
+        require('../../assets/media1.png'),
+        require('../../assets/media1.png'),
+        require('../../assets/media1.png')
     ];
 
     return (
         <View style={styles.container}>
             <ImageBackground
-                source={require('../assets/media1.png')}
+                source={require('../../assets/media1.png')}
                 style={styles.backgroundImage}>
                 <Carousel images={images}/>
                 <View style={styles.bottomContainer}>

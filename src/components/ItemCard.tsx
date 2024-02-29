@@ -1,3 +1,4 @@
+/*
 import {Text, View, StyleSheet} from "react-native";
 import {Image} from "expo-image";
 import * as React from "react";
@@ -63,4 +64,146 @@ const styles = StyleSheet.create({
     },
 });
 
+export default ItemCard;*/
+
+
+// Path: src/components/ItemCard.tsx
+
+
+import {View, StyleSheet, Dimensions} from "react-native";
+import {Text} from "react-native";
+import {Image} from "expo-image";
+import ShoppingCartIcon from "../../assets/icons/ShoppingCartIcon";
+import MyButton from "./MyButton";
+import HeartIcon from "../../assets/icons/HeartIcon";
+
+type CustomRowItemCardProps = {
+    productImg: string;
+    productName: string;
+    productPrice: number;
+    currency: string;
+    sellingType: string;
+};
+const ItemCard = ({productImg, productName, productPrice, currency, sellingType}: CustomRowItemCardProps) => {
+    return (
+        <View style={styles.cardContainer}>
+            <View style={styles.leftSubContainer}>
+                <Image source={{uri: productImg}} style={styles.image} resizeMode="cover"/>
+            </View>
+
+            <View style={styles.rightSubContainer}>
+                <View style={styles.header}>
+                    <Text style={styles.productName}>{productName}</Text>
+                </View>
+                <View style={styles.body}>
+                    <Text style={styles.price}>
+                        {productPrice}
+                    </Text>
+                    <Text style={styles.currencyAndSellingType}>
+                        {currency} / {sellingType}
+                    </Text>
+                </View>
+                <View style={styles.footer}>
+                    <MyButton
+                        iconShown={true}
+                        icon={<HeartIcon color="#9586A8"/>}
+                        iconColor="red"
+                        buttonStyles={styles.heartBtnStyle} textShown>
+
+                    </MyButton>
+                    <MyButton
+                        iconShown={true}
+                        icon={<ShoppingCartIcon color="#fff"/>}
+                        iconColor="red"
+                        buttonStyles={styles.shoppingCartBtnStyle}
+                        textShown/>
+                </View>
+            </View>
+        </View>
+    );
+};
+
 export default ItemCard;
+
+const {width, height} = Dimensions.get('window');
+
+
+const styles = StyleSheet.create({
+    cardContainer: {
+        flexDirection: 'row',
+        height: 160,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        gap: 5,
+        // backgroundColor: "rgba(30,30,30,0.5)",
+        // borderWidth: 1,
+    },
+    leftSubContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        // backgroundColor: "red",
+        // borderWidth: 1,
+
+    },
+    image: {
+        height: "100%",
+        borderRadius: 8
+
+    },
+    rightSubContainer: {
+        flex: 1,
+        // borderWidth: 1
+
+    },
+    header: {
+        flex: 1,
+        paddingHorizontal: 20,
+        // borderWidth: 1,
+        // alignItems: 'center'
+    },
+    productName: {
+        // paddingHorizontal: 20
+        fontSize: 18,
+        fontWeight: "600"
+    },
+    body: {
+        flex: 1,
+        // borderWidth: 1,
+        flexDirection: 'row',
+        paddingHorizontal: 20,
+        gap: 5,
+        alignItems: 'flex-start',
+        // justifyContent: "flex-start"
+    },
+    price: {
+        fontSize: 22,
+        fontWeight: "700"
+    },
+    currencyAndSellingType: {
+        fontSize: 16,
+        fontWeight: "400",
+        color: 'rgba(0,0,0,0.5)',
+
+    },
+    footer: {
+        // borderWidth: 1,
+        flex: 1,
+        flexDirection: 'row',
+        gap: 10,
+        paddingHorizontal: 20,
+    },
+    heartBtnStyle: {
+        paddingHorizontal: 25,
+        // paddingVertical: 30,
+        backgroundColor: '#fff',
+        borderWidth: 1,
+        borderColor: "#D9D0E3"
+    },
+    shoppingCartBtnStyle: {
+        paddingHorizontal: 25,
+        // paddingVertical: 30,
+        // backgroundColor: '#fff'
+    }
+
+
+});

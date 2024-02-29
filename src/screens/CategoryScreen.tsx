@@ -5,27 +5,27 @@ const mockData = [
     {
         title: "Pasta",
         count: 2,
-        image: require("../assets/media9.png"),
+        image: require("../../assets/media9.png"),
     },
     {
         title: "Drinks",
         count: 2,
-        image: require("../assets/media5.png"),
+        image: require("../../assets/media5.png"),
     },
     {
         title: "Vegetables",
         count: 2,
-        image: require("../assets/media6.png"),
+        image: require("../../assets/media6.png"),
     },
     {
         title: "Bread",
         count: 22,
-        image: require("../assets/media7.png"),
+        image: require("../../assets/media7.png"),
     },
     {
         title: "Fruits",
         count: 2,
-        image: require("../assets/media8.png"),
+        image: require("../../assets/media8.png"),
     }
 ]
 
