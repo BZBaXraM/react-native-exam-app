@@ -1,5 +1,5 @@
 import * as React from "react";
-import {StyleSheet, View, Text, TextInput, ScrollView, Image, TouchableOpacity} from "react-native";
+import {StyleSheet, View, Text, TextInput, ScrollView, Image, TouchableOpacity, Dimensions} from "react-native";
 
 const mockData = [
     {
@@ -32,6 +32,9 @@ const mockData = [
 type CategoryScreenProps = {
     navigation: object | any;
 };
+
+const windowWidth = Dimensions.get("window").width;
+
 const CategoryScreen = ({navigation}: CategoryScreenProps) => {
     const [searchTerm, setSearchTerm] = React.useState("");
 
@@ -81,12 +84,14 @@ export default CategoryScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
-        paddingHorizontal: 20,
     },
     categoryContainer: {
-        marginTop: 50,
-        marginBottom: 30,
+        width: windowWidth * 0.9,
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+        alignItems: "center",
+        rowGap: 20
     },
     category: {
         fontSize: 20,

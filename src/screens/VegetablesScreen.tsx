@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, Image} from "react-native";
 import {ProductService} from "../services/ProductService";
 import Svg, {Defs, ClipPath, Rect, G, Path} from "react-native-svg";
 import {Product} from "../types/Product";
+import {useEffect} from "react";
 
 
 
@@ -46,7 +47,7 @@ const VegetablesScreen = () => {
     const [products, setProducts] = React.useState<Product[]>([]);
     const service = new ProductService();
 
-    React.useEffect(() => {
+    useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const response = await service.getVegetables();

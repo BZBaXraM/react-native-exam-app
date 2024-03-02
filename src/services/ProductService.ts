@@ -68,7 +68,6 @@ export class ProductService {
         } catch (error: string | any) {
             if (error.isAxiosError && !error.response) {
                 console.error('Network error:', error);
-                // Display a user-friendly error message
                 alert('Network error: Please check your internet connection and try again.');
             } else {
                 console.error('Error:', error);

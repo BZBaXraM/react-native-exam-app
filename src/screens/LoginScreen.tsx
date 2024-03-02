@@ -1,65 +1,41 @@
-import React, {useState} from 'react';
-import {View, TextInput, Button, StyleSheet} from 'react-native';
-import {ProductService} from "../services/ProductService";
-import {NavigationProp, ParamListBase} from '@react-navigation/native';
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, {useContext, useState} from 'react';
+import {Button, TextInput, View} from 'react-native';
+import AuthContext from '../context/AuthContext';
 
-type LoginScreenProps = {
-    navigation: NavigationProp<ParamListBase>;
-};
-
-const LoginScreen = ({navigation}: LoginScreenProps) => {
-    const service = new ProductService();
+const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const {login} = useContext(AuthContext);
 
-    const handleLogin = async () => {
-        try {
-            const response = await service.login(email, password);
-            if (response) {
-                await AsyncStorage.setItem('accessToken', response);
-                navigation.navigate('Category');
-            } else {
-                console.error('Error: Login response is undefined');
-            }
-        } catch (ex) {
-            console.error(ex);
-        }
+    const handleSubmit = () => {
+        login(email, password).then(r => console.log(r));
     };
 
     return (
-        <View style={styles.container}>
-            <TextInput
-                style={styles.input}
-                placeholder="Email"
-                value={email}
-                onChangeText={setEmail}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Password"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
-            <Button title="Login" onPress={handleLogin}/>
+        <View style={
+            {
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center'
+            }
+        }>
+            <TextInput style={
+                {
+                    marginBottom: 25,
+                    width: 200,
+                    borderBottomColor: 'black',
+                }
+            } placeholder="Email" onChangeText={setEmail} value={email}/>
+            <TextInput style={
+                {
+                    marginBottom: 25,
+                    width: 200,
+                    borderBottomColor: 'black',
+                }
+            } placeholder="Password" onChangeText={setPassword} value={password} secureTextEntry/>
+            <Button color={'black'} title="Submit" onPress={handleSubmit}/>
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        padding: 16,
-    },
-    input: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginBottom: 12,
-        paddingLeft: 8,
-    },
-});
 
 export default LoginScreen;
