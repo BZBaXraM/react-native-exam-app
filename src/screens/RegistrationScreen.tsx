@@ -17,7 +17,6 @@ const RegistrationScreen = ({ navigation }: RegistrationScreenProps) => {
       const response = await service.register(email, password);
       if (response) {
         console.log("Registration successful");
-        // navigation.navigate("Login");
       } else {
         console.error("Error: Registration response is undefined");
       }

@@ -1,58 +1,71 @@
 import React from "react";
-import {StyleSheet, View,  TextInput, Dimensions} from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Dimensions,
+  Pressable,
+} from "react-native";
+import { useState } from "react";
 import SearchIcon from "../../assets/icons/SearchIcon";
 
-type SearchProps = {
-    value: string;
-    onChangeText: (text: string) => void;
-    onSubmit: () => void;
+type Props = {
+  onSearch: () => void;
+  word: string;
 };
-const Search = ({value, onChangeText, onSubmit}: SearchProps) => {
+const windowHeight = Dimensions.get("window").height;
+const windowWidth = Dimensions.get("window").width;
 
+const SearchBar = () => {
+  const [searchWord, setSearchWord] = useState("");
+  const onSearcHandle = () => {
+    alert(searchWord);
+  };
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.iconContainer}>
-                <SearchIcon color="#000000"/>
-            </View>
-            <TextInput
-                style={styles.input}
-                placeholder="Search"
-                placeholderTextColor="#9586A8"
-                value={value}
-                onChangeText={onChangeText}
-                onSubmitEditing={onSubmit}
-            />
+  return (
+    <View style={styles.container}>
+      <Pressable onPress={onSearcHandle}>
+        <View style={styles.iconContainer}>
+          <SearchIcon />
         </View>
-    );
+      </Pressable>
+      <TextInput
+        style={styles.input}
+        placeholder="Search"
+        onChangeText={setSearchWord}
+      ></TextInput>
+    </View>
+  );
 };
 
-export default Search;
-
-const screenWidth = Dimensions.get('window').width;
-
+export default SearchBar;
 
 const styles = StyleSheet.create({
-    container: {
-        flexDirection: "row",
-        maxWidth: screenWidth - 40,
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        gap: 10,
-        borderRadius: 27,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: "center",
-    },
-    iconContainer: {},
-    input: {
-        flex: 1,
-        fontSize: 19,
-        fontWeight: '400',
-        lineHeight: 22,
-        color: '#000',
-        borderWidth: 0,
-        paddingLeft: 5
-    },
-
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    backgroundColor: "#FFFF",
+    borderColor: "#D9D0E3",
+    borderWidth: 1,
+    borderRadius: 30,
+    width: windowWidth * 0.9,
+    height: 50,
+    padding: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginVertical: 20,
+  },
+  input: {
+    marginLeft: 10,
+    fontSize: 18,
+    color: "gray",
+  },
+  iconContainer: {
+    flex: 1,
+    display: "flex",
+    justifyContent: "center",
+    marginHorizontal: 5,
+  },
 });
