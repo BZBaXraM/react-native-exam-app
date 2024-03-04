@@ -36,7 +36,7 @@ const SplashScreen = ({navigation}: SplashScreenProps) => {
                             text="Dismiss"
                             textStyles={styles.dismissButtonText}
                             buttonStyles={styles.dismissButton}
-                            iconColor="#9586A8"
+                            icon="#9586A8"
                             iconShown={false}
                         />
                         <MyButton
@@ -44,10 +44,12 @@ const SplashScreen = ({navigation}: SplashScreenProps) => {
                             text="Order Now"
                             textStyles={styles.orderNowButtonText}
                             buttonStyles={styles.orderNowButton}
-                            iconColor="#fff"
+
                             iconShown={false}
-                            onPress={() => navigation.navigate("Category")}
-                        />
+                            onPress={() => navigation.navigate("Registration")}
+                         icon={
+                            <BoxIcon style={styles.icon}/>
+                         }/>
                     </View>
                 </View>
             </ImageBackground>
