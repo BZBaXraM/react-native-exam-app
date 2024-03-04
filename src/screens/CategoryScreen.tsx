@@ -164,21 +164,6 @@ type Props = {
 const windowWidth = Dimensions.get("window").width;
 
 export default function CategoryScreen({ navigation }: Props) {
-  const [products, setProducts] = React.useState<Product[]>([]);
-  const service = new ProductService();
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await service.getBreads();
-        setProducts(response);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchProducts().finally(() => console.log("Products fetched"));
-  }, []);
 
   const drawCards = () => {
     return CategoriesLst.map((category, i) => (

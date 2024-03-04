@@ -20,7 +20,7 @@ type CategoryProps = {
   products: any[];
 };
 type Props = {
-  data: CategoryProps;
+  data: CategoryProps | any;
   navigation: StackNavigationProp<RootStackParams, "Login">;
 };
 
