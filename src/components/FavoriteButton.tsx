@@ -8,12 +8,12 @@ type Props = {
   isBig: boolean;
 };
 
-const FavoriteBtn = ({ isBig }: Props) => {
+const FavoriteButton = ({ isBig }: Props) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
     <Pressable style={styles.btn} onPress={() => setIsActive(!isActive)}>
-      {isBig === true ? (
+      {isBig ? (
         <View
           style={isActive ? styles.containerActiveBig : styles.containerBig}
         >
@@ -36,7 +36,7 @@ const FavoriteBtn = ({ isBig }: Props) => {
   );
 };
 
-export default FavoriteBtn;
+export default FavoriteButton;
 
 const styles = StyleSheet.create({
   btn: {

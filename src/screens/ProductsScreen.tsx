@@ -32,7 +32,7 @@ const ProductsScreen = ({navigation, route}: Props) => {
         fetchProducts().then(r => console.log("Products fetched"));
     }, [category]);
 
-    const drawProducts = () => {
+    const getProducts = () => {
         return products.map((product: any, i: number) => (
             <ProductItem
                 product={product}
@@ -53,7 +53,7 @@ const ProductsScreen = ({navigation, route}: Props) => {
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={styles.productsContainer}
                     >
-                        {drawProducts()}
+                        {getProducts()}
                     </ScrollView>
                 </View>
             </View>

@@ -10,7 +10,7 @@ import {
 import { ImageSourcePropType } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-import FavoriteBtn from "./FavoriteBtn";
+import FavoriteButton from "./FavoriteButton";
 import BasketBtn from "./BasketBtn";
 import { RootStackParams } from "../navigation";
 import { Product } from "../types/Product";
@@ -64,7 +64,7 @@ const ProductItem = ({ product, navigation, image }: Props) => {
             <Text style={styles.pieceOrKg}>€ / {product.price}</Text>
           </View>
           <View style={styles.btnsContainer}>
-            <FavoriteBtn isBig={false} />
+            <FavoriteButton isBig={false} />
             <BasketBtn hasTitle={false} />
           </View>
         </View>
