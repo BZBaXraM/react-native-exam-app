@@ -11,7 +11,7 @@ import { ImageSourcePropType } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import FavoriteButton from "./FavoriteButton";
-import BasketBtn from "./BasketBtn";
+import BasketButton from "./BasketButton";
 import { RootStackParams } from "../navigation";
 import { Product } from "../types/Product";
 import { ProductService } from "../services/ProductService";
@@ -65,7 +65,7 @@ const ProductItem = ({ product, navigation, image }: Props) => {
           </View>
           <View style={styles.btnsContainer}>
             <FavoriteButton isBig={false} />
-            <BasketBtn hasTitle={false} />
+            <BasketButton hasTitle={false} />
           </View>
         </View>
       </View>

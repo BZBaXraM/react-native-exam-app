@@ -2,7 +2,7 @@ import {StatusBar} from "expo-status-bar";
 import {StyleSheet, Dimensions, View, Text, ImageBackground} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
 import FavoriteButton from "../components/FavoriteButton";
-import BasketBtn from "../components/BasketBtn";
+import BasketButton from "../components/BasketButton";
 import {Product} from "../types/Product";
 
 const windowDimensions = Dimensions.get("window");
@@ -26,7 +26,7 @@ export default function ProductScreen({route}: Props) {
                     <Text style={styles.description}>{product.description}</Text>
                     <View style={styles.buttons}>
                         <FavoriteButton isBig={true}/>
-                        <BasketBtn hasTitle={true}/>
+                        <BasketButton hasTitle={true}/>
                     </View>
                 </View>
                 <StatusBar style="auto"/>

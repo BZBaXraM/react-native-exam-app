@@ -8,14 +8,14 @@ type Props = {
   hasTitle: boolean;
 };
 
-const BasketBtn = ({ hasTitle }: Props) => {
+const BasketButton = ({ hasTitle }: Props) => {
   const [isActive, setIsActive] = useState(false);
   return (
     <Pressable
-      style={hasTitle == true ? styles.btnbig : styles.btn}
+      style={hasTitle ? styles.btnbig : styles.btn}
       onPress={() => setIsActive(!isActive)}
     >
-      {hasTitle === true ? (
+      {hasTitle ? (
         <View
           style={isActive ? styles.containerActiveBig : styles.containerBig}
         >
@@ -44,7 +44,7 @@ const BasketBtn = ({ hasTitle }: Props) => {
   );
 };
 
-export default BasketBtn;
+export default BasketButton;
 
 const styles = StyleSheet.create({
   btnbig: {
